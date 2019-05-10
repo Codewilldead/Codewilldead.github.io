@@ -3,18 +3,26 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Archives: 2019/5 | Howl</title>
+  <title>函数原型 | Howl</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="HowlCN,HowlCN's Blog">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Howl">
-<meta property="og:url" content="https://HowlCN.github.io/archives/2019/05/index.html">
+  <meta name="description" content="函数原型一、函数声明的实质我们平时大量使用Function，但是真的懂Function吗？ 声明一个函数的时所使用的代码 123function fn(num1,num2)&amp;#123;    return num1+num2;&amp;#125; 其实它的实质是使用了Function的构造函数 12//Function(参数1，参数2，...，函数体);var fn = new Function(&apos;num">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数原型">
+<meta property="og:url" content="https://HowlCN.github.io/2019/05/10/函数原型/index.html">
 <meta property="og:site_name" content="Howl">
+<meta property="og:description" content="函数原型一、函数声明的实质我们平时大量使用Function，但是真的懂Function吗？ 声明一个函数的时所使用的代码 123function fn(num1,num2)&amp;#123;    return num1+num2;&amp;#125; 其实它的实质是使用了Function的构造函数 12//Function(参数1，参数2，...，函数体);var fn = new Function(&apos;num">
 <meta property="og:locale" content="simplified Chinese">
+<meta property="og:image" content="https://howlcn.github.io/2019/05/10/函数原型/函数原型.png">
+<meta property="og:image" content="https://howlcn.github.io/2019/05/10/函数原型/原型链加函数原型.png">
+<meta property="og:updated_time" content="2019-05-10T07:51:39.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Howl">
+<meta name="twitter:title" content="函数原型">
+<meta name="twitter:description" content="函数原型一、函数声明的实质我们平时大量使用Function，但是真的懂Function吗？ 声明一个函数的时所使用的代码 123function fn(num1,num2)&amp;#123;    return num1+num2;&amp;#125; 其实它的实质是使用了Function的构造函数 12//Function(参数1，参数2，...，函数体);var fn = new Function(&apos;num">
+<meta name="twitter:image" content="https://howlcn.github.io/2019/05/10/函数原型/函数原型.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -105,35 +113,106 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-函数原型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/10/函数原型/" class="archive-article-date">
-  <time datetime="2019-05-10T03:47:04.767Z" itemprop="datePublished">05-10</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/10/函数原型/">函数原型</a>
+    <h1 class="post-title" itemprop="name">
+      函数原型
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-05-10
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
+            
+            <h1 id="函数原型"><a href="#函数原型" class="headerlink" title="函数原型"></a>函数原型</h1><h2 id="一、函数声明的实质"><a href="#一、函数声明的实质" class="headerlink" title="一、函数声明的实质"></a>一、函数声明的实质</h2><p>我们平时大量使用Function，但是真的懂Function吗？</p>
+<p>声明一个函数的时所使用的代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1+num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实它的实质是使用了Function的构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Function(参数1，参数2，...，函数体);</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'num1'</span>,<span class="string">'num2'</span>,<span class="string">'return num1+num2'</span>);</span><br></pre></td></tr></table></figure>
+<p>这两种声明方式是等同的，但从第二种写法上，我们可以很清晰的看出fn函数是由Function构造出来的。</p>
+<h2 id="二、JavaScript对象"><a href="#二、JavaScript对象" class="headerlink" title="二、JavaScript对象"></a>二、JavaScript对象</h2><p>我们先来看一个例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>);</span><br></pre></td></tr></table></figure>
+<p>打印结果都是Function，这是为什么了，为什么Object也是Function？</p>
+<p>那是因为<strong>JS中所有的函数都是Function的实例</strong>，Object也是由构造函数构建的，那么Object的类型也是Function。</p>
+<p>值得注意的是：<strong><font color="red">Function自身能够生成自身，即Function的原型就是Function。</font></strong>即</p>
+<p>我们用一张图来解释这其中的关系</p>
+<p><img src="/2019/05/10/函数原型/函数原型.png" alt="函数原型"></p>
+<p>结合上一章所介绍的原型链，综合给出一张关系图</p>
+<p><img src="/2019/05/10/函数原型/原型链加函数原型.png" alt="原型链加函数原型"></p>
+<p>[声明]：本篇文章中部分引用 <a href="https://blog.csdn.net/swl979623074/article/details/78836767" target="_blank" rel="noopener">从Function说原型</a> 的文章。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年05月10日 15:51</p>
+        <p>原始链接： <a class="post-url" href="/2019/05/10/函数原型/" title="函数原型">https://HowlCN.github.io/2019/05/10/函数原型/</a></p>
+        <footer>
+            <a href="https://HowlCN.github.io">
+                <img src="/images/logo.png" alt="Wning">
+                Wning
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
@@ -142,127 +221,27 @@
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
+
+
+<nav id="article-nav">
   
+  
+    <a href="/2019/05/09/Phonegap的学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title"></span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/09/Phonegap的学习笔记/" class="archive-article-date">
-  <time datetime="2019-05-09T08:04:25.799Z" itemprop="datePublished">05-09</time>
-</a>
-      
-    </header>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/08/简述Js中的原型与原型链/" class="archive-article-date">
-  <time datetime="2019-05-08T13:14:16.327Z" itemprop="datePublished">05-08</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/08/简述Js中的原型与原型链/">简述Js中的原型与原型链</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Javascript/" class="color1">Javascript</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/06/浅析Javascript中的冒泡机制/" class="archive-article-date">
-  <time datetime="2019-05-06T11:22:55.584Z" itemprop="datePublished">05-06</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/06/浅析Javascript中的冒泡机制/">Javascript中的冒泡机制</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Javascript/" class="color1">Javascript</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/06/关于input禁用中文输入法的问题/" class="archive-article-date">
-  <time datetime="2019-05-06T11:22:55.534Z" itemprop="datePublished">05-06</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/06/关于input禁用中文输入法的问题/">关于input禁用中文输入法的问题</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Javascript/" class="color1">Javascript</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-  
-    </div></section>
-  
-
 </section>
         
       </div>
