@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Howl">
 <meta property="og:description" content="正则表达式正则就是对字符串进行查找、匹配、替换等操作的一串“规则字符串” 使用方法：在一对斜杠之间添加正则表达式  如：/ 正则表达式 /  正则表达式的组成 普通字符 特殊字符（元字符）：正则表达式中具有特殊意义的字符  元字符   \d 表示数字     \D 非数字   \s 空格符   \S 非空格符   \w 字母或数字或下划线   \W 非字母、数字、下划线   . 任意字符（不包含换">
 <meta property="og:locale" content="simplified Chinese">
-<meta property="og:updated_time" content="2019-05-14T12:17:21.357Z">
+<meta property="og:updated_time" content="2019-05-15T06:02:47.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="正则表达式正则就是对字符串进行查找、匹配、替换等操作的一串“规则字符串” 使用方法：在一对斜杠之间添加正则表达式  如：/ 正则表达式 /  正则表达式的组成 普通字符 特殊字符（元字符）：正则表达式中具有特殊意义的字符  元字符   \d 表示数字     \D 非数字   \s 空格符   \S 非空格符   \w 字母或数字或下划线   \W 非字母、数字、下划线   . 任意字符（不包含换">
@@ -254,7 +254,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\w+'</span>,<span class="string">'ig'</span>);  <span class="comment">//注意，此处第一个\是转义字符，因为参数一不能直接传入正则表达式</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'[a-z]'</span>,<span class="string">'ig'</span>);</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"AaaC2_"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <h3 id="2、简写"><a href="#2、简写" class="headerlink" title="2、简写"></a>2、简写</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/[a-z]/ig</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"AaaC2_"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <h2 id="正则对象的方法"><a href="#正则对象的方法" class="headerlink" title="正则对象的方法"></a>正则对象的方法</h2><p>  RegExp.test(‘字符串’);  判断字符串知否满足正则表达式  返回布尔值</p>
-<p> RegExp.exec(‘字符串’);  判断字符串知否满足正则表达式  返回布尔值</p>
+<p> RegExp.exec(‘字符串’);  判断字符串知否满足正则表达式  将找到的内容以数组的形式返回</p>
 <p>1、不使用 “<code>g</code>“ 标志时,每次都返回第一个找的内容  而不继续向后查找</p>
 <p>2、当正则表达式使用 “<code>g</code>“ 标志时，可以多次执行 <code>exec</code> 方法来查找同一个字符串中的成功匹配。当你这样做时，查找将从正则表达式的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex" target="_blank" rel="noopener"><code>lastIndex</code></a> 属性指定的位置开始</p>
 <p><strong>lastIndex</strong>:</p>
@@ -314,7 +314,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//split</span></span><br><span class="line"><span class="keyword">var</span> str=<span class="string">"a|b|c|"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.split(<span class="regexp">/\|/</span>));<span class="comment">//结果  "a","b","c",""</span></span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年05月14日 20:17</p>
+        <p>最后更新： 2019年05月15日 14:02</p>
         <p>原始链接： <a class="post-url" href="/2019/05/14/正则表达式/" title="正则表达式">https://HowlCN.github.io/2019/05/14/正则表达式/</a></p>
         <footer>
             <a href="https://HowlCN.github.io">
