@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>追书神器 接口分析 | Howl</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="HowlCN,HowlCN's Blog">
+  
+  <meta name="description" content="追书神器 接口分析前言后台服务器访问get请求 localhost:8080 1例：localhost:8080/api/btoc?view=summary&amp;amp;book=&amp;#123;&amp;#123;book_id&amp;#125;&amp;#125; 本地直接访问 （本站默认访问接口）get请求 http://www.api.zhuishushenqi.com 1http://www.api.zhuishus">
+<meta name="keywords" content="API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="追书神器 接口分析">
+<meta property="og:url" content="https://HowlCN.github.io/2019/06/14/追书神器 接口分析/index.html">
+<meta property="og:site_name" content="Howl">
+<meta property="og:description" content="追书神器 接口分析前言后台服务器访问get请求 localhost:8080 1例：localhost:8080/api/btoc?view=summary&amp;amp;book=&amp;#123;&amp;#123;book_id&amp;#125;&amp;#125; 本地直接访问 （本站默认访问接口）get请求 http://www.api.zhuishushenqi.com 1http://www.api.zhuishus">
+<meta property="og:locale" content="en zh-cn">
+<meta property="og:updated_time" content="2019-06-14T15:50:13.246Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="追书神器 接口分析">
+<meta name="twitter:description" content="追书神器 接口分析前言后台服务器访问get请求 localhost:8080 1例：localhost:8080/api/btoc?view=summary&amp;amp;book=&amp;#123;&amp;#123;book_id&amp;#125;&amp;#125; 本地直接访问 （本站默认访问接口）get请求 http://www.api.zhuishushenqi.com 1http://www.api.zhuishus">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">HowlCN&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a target="_blank" href="https://HowlCN.github.io">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a target="_blank" href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        HowlCN&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        记录学习及开发过程的问题与心得
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="HowlCN" target="_blank" href="//HowlCN.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/HowlCN/HowlCN.github.io">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" href="/">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" href="/">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-追书神器 接口分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      追书神器 接口分析
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-06-14
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="追书神器-接口分析"><a href="#追书神器-接口分析" class="headerlink" title="追书神器 接口分析"></a>追书神器 接口分析</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="后台服务器访问"><a href="#后台服务器访问" class="headerlink" title="后台服务器访问"></a>后台服务器访问</h3><p>get请求</p>
+<p>localhost:8080</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：localhost:8080/api/btoc?view=summary&amp;book=&#123;&#123;book_id&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="本地直接访问-（本站默认访问接口）"><a href="#本地直接访问-（本站默认访问接口）" class="headerlink" title="本地直接访问 （本站默认访问接口）"></a>本地直接访问 （本站默认访问接口）</h3><p>get请求</p>
+<p><a href="http://www.api.zhuishushenqi.com" target="_blank" rel="noopener">http://www.api.zhuishushenqi.com</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.api.zhuishushenqi.com/btoc?view=summary&amp;book=&#123;&#123;book_id&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="本地静态资源访问"><a href="#本地静态资源访问" class="headerlink" title="本地静态资源访问"></a>本地静态资源访问</h3><p>get请求</p>
+<p>如部分图片等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://statics.zhuishushenqi.com/agent/http%3A%2F%2Fimg.1391.com%2Fapi%2Fv1%2Fbookcenter%2Fcover%2F1%2F685505%2F685505_4fa9184853ee4d2d936ae2595b93a540.jpg%2F</span><br></pre></td></tr></table></figure>
+<h2 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h2><h3 id="首页轮播"><a href="#首页轮播" class="headerlink" title="首页轮播"></a>首页轮播</h3><p>/recommendPage/node/spread/575f74f27a4a60dc78a435a3?pl=ios</p>
+<h3 id="首页分类"><a href="#首页分类" class="headerlink" title="首页分类"></a>首页分类</h3><p>/recommendPage/nodes/5910018c8094b1e228e5868f</p>
+<h3 id="首页分类书籍"><a href="#首页分类书籍" class="headerlink" title="首页分类书籍"></a>首页分类书籍</h3><p>/recommendPage/books/</p>
+<p>例如：</p>
+<p>/recommendPage/books/5912825ba1dbf3ad33ee7ffe</p>
+<h2 id="分类页"><a href="#分类页" class="headerlink" title="分类页"></a>分类页</h2><h3 id="分类页列表"><a href="#分类页列表" class="headerlink" title="分类页列表"></a>分类页列表</h3><h5 id="大分类"><a href="#大分类" class="headerlink" title="大分类"></a>大分类</h5><p>​        /lv2/statistics</p>
+<h5 id="小分类"><a href="#小分类" class="headerlink" title="小分类"></a>小分类</h5><p>​        /cats/lv2</p>
+<h3 id="获取分类详情"><a href="#获取分类详情" class="headerlink" title="获取分类详情"></a>获取分类详情</h3><p>​        /book/by-categories</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>限制</th>
+<th>值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gender</td>
+<td></td>
+<td>famale,male</td>
+<td>男生类 或者 女生类</td>
+</tr>
+<tr>
+<td>type</td>
+<td></td>
+<td>hot,new,reputation,over,monthly</td>
+<td>hot 热门 new新书 reputation好评 over完结 monthly包月</td>
+</tr>
+<tr>
+<td>major</td>
+<td>必选</td>
+<td></td>
+<td>大分类</td>
+</tr>
+<tr>
+<td>minor</td>
+<td></td>
+<td></td>
+<td>小分类</td>
+</tr>
+<tr>
+<td>start</td>
+<td></td>
+<td>0</td>
+<td>做分页使用 获取第几页  默认0</td>
+</tr>
+<tr>
+<td>limit</td>
+<td></td>
+<td>20</td>
+<td>限制获取条数   默认20</td>
+</tr>
+</tbody>
+</table>
+<h2 id="书籍热门评论"><a href="#书籍热门评论" class="headerlink" title="书籍热门评论"></a>书籍热门评论</h2><h3 id="短评"><a href="#短评" class="headerlink" title="短评"></a>短评</h3><h3 id="长评"><a href="#长评" class="headerlink" title="长评"></a>长评</h3><p>​    /post/review/best-by-book?book=</p>
+<h3 id="书评"><a href="#书评" class="headerlink" title="书评"></a>书评</h3><p>​    /post/review/by-book?book=&amp;sort=?&amp;start=?&amp;limit=?</p>
+<h2 id="书籍讨论"><a href="#书籍讨论" class="headerlink" title="书籍讨论"></a>书籍讨论</h2><p>​    /post/by-book</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>限制</th>
+<th>值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>book</td>
+<td>必填</td>
+<td>book_id</td>
+<td></td>
+</tr>
+<tr>
+<td>sort</td>
+<td></td>
+<td>updated\</td>
+<td>created\</td>
+<td>comment-count</td>
+<td>排序方式</td>
+</tr>
+<tr>
+<td>type</td>
+<td></td>
+<td>normal,vote</td>
+<td>未知</td>
+</tr>
+<tr>
+<td>start</td>
+<td></td>
+<td>0</td>
+<td>做分页使用 获取第几页  默认0</td>
+</tr>
+<tr>
+<td>limit</td>
+<td></td>
+<td>20</td>
+<td>限制获取条数   默认20</td>
+</tr>
+</tbody>
+</table>
+<h2 id="同类书籍推荐"><a href="#同类书籍推荐" class="headerlink" title="同类书籍推荐"></a>同类书籍推荐</h2><p>book//recommend</p>
+<h2 id="排行榜"><a href="#排行榜" class="headerlink" title="排行榜"></a>排行榜</h2><h3 id="获取排行榜分类"><a href="#获取排行榜分类" class="headerlink" title="获取排行榜分类"></a>获取排行榜分类</h3><p>​        /ranking/gender</p>
+<h3 id="获取各排行榜书籍列表"><a href="#获取各排行榜书籍列表" class="headerlink" title="获取各排行榜书籍列表"></a>获取各排行榜书籍列表</h3><p>​        /ranking/</p>
+<h2 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h2><h3 id="书单列表"><a href="#书单列表" class="headerlink" title="书单列表"></a>书单列表</h3><p>​    /book-list</p>
+<h3 id="书单详情"><a href="#书单详情" class="headerlink" title="书单详情"></a>书单详情</h3><p>​    /book-list/:bookId</p>
+<h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><h3 id="书籍详情"><a href="#书籍详情" class="headerlink" title="书籍详情"></a>书籍详情</h3><p>​    /book/</p>
+<h3 id="各大网站的的章节更新情况"><a href="#各大网站的的章节更新情况" class="headerlink" title="各大网站的的章节更新情况"></a>各大网站的的章节更新情况</h3><p>/atoc/?view=summary&amp;book=  此接口数据可来自各大读书网站</p>
+<p>/btoc/?view=summary&amp;book=  此接口数据只来自vip.zhuishushenqi.com</p>
+<p>（注 atoc可换源  btoc不可换源）</p>
+<h3 id="获取书籍章节列表（各章节-返回各章节link）"><a href="#获取书籍章节列表（各章节-返回各章节link）" class="headerlink" title="获取书籍章节列表（各章节 返回各章节link）"></a>获取书籍章节列表（各章节 返回各章节link）</h3><p>/atoc/?view=chapters&amp;channel=mweb   </p>
+<p>/btoc/?view=chapters&amp;channel=mweb</p>
+<h3 id="获取章节内容（注意此接口不同与其他）"><a href="#获取章节内容（注意此接口不同与其他）" class="headerlink" title="获取章节内容（注意此接口不同与其他）"></a>获取章节内容（注意此接口不同与其他）</h3><p><strong>（此部分较复杂 大致步骤为 书籍id -&gt; 获取所有书源 -&gt; 书源id -&gt; 获取章节目录 -&gt; 章节link -&gt; 章节内容）</strong></p>
+<p><a href="http://chapter2.zhuishushenqi.com" target="_blank" rel="noopener">http://chapter2.zhuishushenqi.com</a></p>
+<p>/chapter/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：http://chapter2.zhuishushenqi.com/chapter/&#123;&#123;章节link&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><h3 id="按书籍名搜索"><a href="#按书籍名搜索" class="headerlink" title="按书籍名搜索"></a>按书籍名搜索</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>限制</th>
+<th>值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td>必填</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>limit</td>
+<td></td>
+<td>20</td>
+<td>规定获取信息的条数</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：http://www.api.zhuishushenqi.com/book/fuzzy-search?query=&#123;&#123;关键词&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="按作者名搜索"><a href="#按作者名搜索" class="headerlink" title="按作者名搜索"></a>按作者名搜索</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>限制</th>
+<th>值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>author</td>
+<td>必填</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>limit</td>
+<td></td>
+<td>20</td>
+<td>规定获取信息的条数</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：http://api.zhuishushenqi.com/book/accurate-search?author=&#123;&#123;作者名&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="搜索热词"><a href="#搜索热词" class="headerlink" title="搜索热词"></a>搜索热词</h3><p>​    <a href="http://api.zhuishushenqi.com/book/search-hotwords" target="_blank" rel="noopener">http://api.zhuishushenqi.com/book/search-hotwords</a></p>
+<h3 id="热门搜索"><a href="#热门搜索" class="headerlink" title="热门搜索"></a>热门搜索</h3><p>​    <a href="http://api.zhuishushenqi.com/book/hot-word" target="_blank" rel="noopener">http://api.zhuishushenqi.com/book/hot-word</a></p>
+<h3 id="搜索补齐"><a href="#搜索补齐" class="headerlink" title="搜索补齐"></a>搜索补齐</h3><p>​    <a href="http://api.zhuishushenqi.com/book/auto-complete?query=" target="_blank" rel="noopener">http://api.zhuishushenqi.com/book/auto-complete?query=</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：http://api.zhuishushenqi.com/book/auto-complete?query=斗</span><br></pre></td></tr></table></figure>
+<p>返回：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"keywords"</span>: [</span><br><span class="line">        <span class="string">"斗罗大陆"</span>,</span><br><span class="line">        <span class="string">"斗罗大陆之秩序神传"</span>,</span><br><span class="line">        <span class="string">"斗破苍穹之大世界"</span>,</span><br><span class="line">        <span class="string">"斗罗大陆之王者归来"</span>,</span><br><span class="line">        <span class="string">"斗罗大陆前传"</span>,</span><br><span class="line">        <span class="string">"斗天武神"</span>,</span><br><span class="line">        <span class="string">"斗罗大陆之武魂极限"</span>,</span><br><span class="line">        <span class="string">"斗魂大陆"</span>,</span><br><span class="line">        <span class="string">"斗战狂潮"</span>,</span><br><span class="line">        <span class="string">"斗罗大陆之黄金圣龙"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"ok"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="加入书架"><a href="#加入书架" class="headerlink" title="加入书架"></a>加入书架</h2><p>通过localStorage来实现</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年06月14日 23:50</p>
+        <p>原始链接： <a class="post-url" href="/2019/06/14/追书神器 接口分析/" title="追书神器 接口分析">https://HowlCN.github.io/2019/06/14/追书神器 接口分析/</a></p>
+        <footer>
+            <a href="https://HowlCN.github.io">
+                <img src="/images/logo.png" alt="HowlCN">
+                HowlCN
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/API/" class="color4">API</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/29/GET和POST的区别与联系/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">GET与POST的区别与联系</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 HowlCN<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://HowlCN.github.io",
+      animate: false,
+      isHome: false,
+      share: false,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Ps/" style="font-size: 10px;">Ps</a> <a href="/tags/搭建/" style="font-size: 15px;">搭建</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a target="_blank" href="https://HowlCN.github.io">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Ps/" style="font-size: 10px;">Ps</a> <a href="/tags/搭建/" style="font-size: 15px;">搭建</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
