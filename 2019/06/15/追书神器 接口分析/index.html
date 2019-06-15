@@ -12,11 +12,11 @@
 <meta name="keywords" content="API">
 <meta property="og:type" content="article">
 <meta property="og:title" content="追书神器 接口分析">
-<meta property="og:url" content="https://HowlCN.github.io/2019/06/14/追书神器 接口分析/index.html">
+<meta property="og:url" content="https://HowlCN.github.io/2019/06/15/追书神器 接口分析/index.html">
 <meta property="og:site_name" content="Howl">
 <meta property="og:description" content="追书神器 接口分析前言后台服务器访问get请求 localhost:8080 1例：localhost:8080/api/btoc?view=summary&amp;amp;book=&amp;#123;&amp;#123;book_id&amp;#125;&amp;#125; 本地直接访问 （本站默认访问接口）get请求 http://www.api.zhuishushenqi.com 1http://www.api.zhuishus">
 <meta property="og:locale" content="en zh-cn">
-<meta property="og:updated_time" content="2019-06-14T15:50:13.246Z">
+<meta property="og:updated_time" content="2019-06-15T04:00:25.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="追书神器 接口分析">
 <meta name="twitter:description" content="追书神器 接口分析前言后台服务器访问get请求 localhost:8080 1例：localhost:8080/api/btoc?view=summary&amp;amp;book=&amp;#123;&amp;#123;book_id&amp;#125;&amp;#125; 本地直接访问 （本站默认访问接口）get请求 http://www.api.zhuishushenqi.com 1http://www.api.zhuishus">
@@ -123,7 +123,7 @@
       <ul>
           
         <li>
-          <i class="fa fa-calendar"></i>  2019-06-14
+          <i class="fa fa-calendar"></i>  2019-06-15
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -153,8 +153,9 @@
 <h3 id="首页分类书籍"><a href="#首页分类书籍" class="headerlink" title="首页分类书籍"></a>首页分类书籍</h3><p>/recommendPage/books/</p>
 <p>例如：</p>
 <p>/recommendPage/books/5912825ba1dbf3ad33ee7ffe</p>
-<h2 id="分类页"><a href="#分类页" class="headerlink" title="分类页"></a>分类页</h2><h3 id="分类页列表"><a href="#分类页列表" class="headerlink" title="分类页列表"></a>分类页列表</h3><h5 id="大分类"><a href="#大分类" class="headerlink" title="大分类"></a>大分类</h5><p>​        /lv2/statistics</p>
-<h5 id="小分类"><a href="#小分类" class="headerlink" title="小分类"></a>小分类</h5><p>​        /cats/lv2</p>
+<h2 id="分类页"><a href="#分类页" class="headerlink" title="分类页"></a>分类页</h2><h3 id="分类页列表"><a href="#分类页列表" class="headerlink" title="分类页列表"></a>分类页列表</h3><h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><p>​        /cats/lv2</p>
+<h5 id="分类静态资源的获取"><a href="#分类静态资源的获取" class="headerlink" title="分类静态资源的获取"></a>分类静态资源的获取</h5><p>​        /cats/lv2/statistics</p>
+<p>​        返回书籍封面</p>
 <h3 id="获取分类详情"><a href="#获取分类详情" class="headerlink" title="获取分类详情"></a>获取分类详情</h3><p>​        /book/by-categories</p>
 <table>
 <thead>
@@ -168,9 +169,9 @@
 <tbody>
 <tr>
 <td>gender</td>
-<td></td>
-<td>famale,male</td>
-<td>男生类 或者 女生类</td>
+<td>必选</td>
+<td>male,female,picture,press</td>
+<td>男生类 或者 女生类  或者 漫画 或者 出版图书 默认为male</td>
 </tr>
 <tr>
 <td>type</td>
@@ -266,6 +267,9 @@
 <p><a href="http://chapter2.zhuishushenqi.com" target="_blank" rel="noopener">http://chapter2.zhuishushenqi.com</a></p>
 <p>/chapter/</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：http://chapter2.zhuishushenqi.com/chapter/&#123;&#123;章节link&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="图片的获取"><a href="#图片的获取" class="headerlink" title="图片的获取"></a>图片的获取</h2><p>接口是 <a href="http://statics.zhuishushenqi.com/图片链接" target="_blank" rel="noopener">http://statics.zhuishushenqi.com/图片链接</a></p>
+<p>如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://statics.zhuishushenqi.com/agent/http%3A%2F%2Fimg.1391.com%2Fapi%2Fv1%2Fbookcenter%2Fcover%2F1%2F2107590%2F2107590_718bb20f6bba4ee2910cf30d51882112.jpg%2F</span><br></pre></td></tr></table></figure>
 <h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><h3 id="按书籍名搜索"><a href="#按书籍名搜索" class="headerlink" title="按书籍名搜索"></a>按书籍名搜索</h3><table>
 <thead>
 <tr>
@@ -323,11 +327,12 @@
 <p>返回：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"keywords"</span>: [</span><br><span class="line">        <span class="string">"斗罗大陆"</span>,</span><br><span class="line">        <span class="string">"斗罗大陆之秩序神传"</span>,</span><br><span class="line">        <span class="string">"斗破苍穹之大世界"</span>,</span><br><span class="line">        <span class="string">"斗罗大陆之王者归来"</span>,</span><br><span class="line">        <span class="string">"斗罗大陆前传"</span>,</span><br><span class="line">        <span class="string">"斗天武神"</span>,</span><br><span class="line">        <span class="string">"斗罗大陆之武魂极限"</span>,</span><br><span class="line">        <span class="string">"斗魂大陆"</span>,</span><br><span class="line">        <span class="string">"斗战狂潮"</span>,</span><br><span class="line">        <span class="string">"斗罗大陆之黄金圣龙"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"ok"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="加入书架"><a href="#加入书架" class="headerlink" title="加入书架"></a>加入书架</h2><p>通过localStorage来实现</p>
+<p> 2019-06-15 更新：分类页添加picture，press</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年06月14日 23:50</p>
-        <p>原始链接： <a class="post-url" href="/2019/06/14/追书神器 接口分析/" title="追书神器 接口分析">https://HowlCN.github.io/2019/06/14/追书神器 接口分析/</a></p>
+        <p>最后更新： 2019年06月15日 12:00</p>
+        <p>原始链接： <a class="post-url" href="/2019/06/15/追书神器 接口分析/" title="追书神器 接口分析">https://HowlCN.github.io/2019/06/15/追书神器 接口分析/</a></p>
         <footer>
             <a href="https://HowlCN.github.io">
                 <img src="/images/logo.png" alt="HowlCN">
@@ -396,9 +401,19 @@
 
 <nav id="article-nav">
   
+    <a href="/2019/06/15/AJAX/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          AJAX
+        
+      </span>
+    </a>
   
-    <a href="/2019/05/29/GET和POST的区别与联系/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">GET与POST的区别与联系</span>
+  
+    <a href="/2019/06/01/NPM/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">NPM&amp;YARN</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -463,7 +478,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Ps/" style="font-size: 10px;">Ps</a> <a href="/tags/搭建/" style="font-size: 15px;">搭建</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a>
+            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Ps/" style="font-size: 10px;">Ps</a> <a href="/tags/搭建/" style="font-size: 13.33px;">搭建</a> <a href="/tags/笔记/" style="font-size: 16.67px;">笔记</a> <a href="/tags/算法/" style="font-size: 13.33px;">算法</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -496,7 +511,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Ps/" style="font-size: 10px;">Ps</a> <a href="/tags/搭建/" style="font-size: 15px;">搭建</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a>
+            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Ps/" style="font-size: 10px;">Ps</a> <a href="/tags/搭建/" style="font-size: 13.33px;">搭建</a> <a href="/tags/笔记/" style="font-size: 16.67px;">笔记</a> <a href="/tags/算法/" style="font-size: 13.33px;">算法</a>
         </div>
     </div>
 </div>
