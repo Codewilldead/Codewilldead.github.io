@@ -249,6 +249,55 @@
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://HowlCN.github.io/2018/02/26/浅析Javascript中作用域、作用域链和预解析/&title=《浅析Javascript中作用域、作用域链和预解析》 — Howl&pic=https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=d653ff53376d55fbd1cb7e740c4b242f/5fdf8db1cb134954f9e77be95c4e9258d0094a46.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://HowlCN.github.io/2018/02/26/浅析Javascript中作用域、作用域链和预解析/&title=《浅析Javascript中作用域、作用域链和预解析》 — Howl&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://HowlCN.github.io/2018/02/26/浅析Javascript中作用域、作用域链和预解析/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浅析Javascript中作用域、作用域链和预解析》 — Howl&url=https://HowlCN.github.io/2018/02/26/浅析Javascript中作用域、作用域链和预解析/&via=https://HowlCN.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://HowlCN.github.io/2018/02/26/浅析Javascript中作用域、作用域链和预解析/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://HowlCN.github.io/2018/02/26/浅析Javascript中作用域、作用域链和预解析/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
             
             
@@ -266,6 +315,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#浅析Javascript中作用域、作用域链和预解析"><span class="post-toc-text">浅析Javascript中作用域、作用域链和预解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、作用域"><span class="post-toc-text">一、作用域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-全局作用域（全局变量）"><span class="post-toc-text">1.全局作用域（全局变量）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（1）函数外部"><span class="post-toc-text">（1）函数外部</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#（2）函数内部"><span class="post-toc-text">（2）函数内部</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全局变量与隐式全局变量的区别"><span class="post-toc-text">全局变量与隐式全局变量的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-局部作用域-局部变量"><span class="post-toc-text">2.局部作用域(局部变量)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、作用域链"><span class="post-toc-text">二、作用域链</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量提升"><span class="post-toc-text">变量提升</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#函数提升"><span class="post-toc-text">函数提升</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#函数的声明会提前到变量声明之前"><span class="post-toc-text">函数的声明会提前到变量声明之前</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#匿名函数的申明不遵循预解析规则"><span class="post-toc-text">匿名函数的申明不遵循预解析规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#隐式全局变量的注意点"><span class="post-toc-text">隐式全局变量的注意点</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
@@ -320,9 +375,9 @@
 <script>
   var mihoConfig = {
       root: "https://HowlCN.github.io",
-      animate: false,
+      animate: true,
       isHome: false,
-      share: false,
+      share: true,
       reward: 1
   }
 </script>
@@ -418,6 +473,10 @@
 
 
 
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
 
 
   <script src="/js/pop-img.js"></script>

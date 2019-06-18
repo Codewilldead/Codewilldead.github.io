@@ -218,6 +218,55 @@
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://HowlCN.github.io/2019/05/12/简述JS垃圾回收机制/&title=《JS垃圾回收机制》 — Howl&pic=https://i.loli.net/2019/05/13/5cd96df8482bb59049.gif" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://HowlCN.github.io/2019/05/12/简述JS垃圾回收机制/&title=《JS垃圾回收机制》 — Howl&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://HowlCN.github.io/2019/05/12/简述JS垃圾回收机制/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS垃圾回收机制》 — Howl&url=https://HowlCN.github.io/2019/05/12/简述JS垃圾回收机制/&via=https://HowlCN.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://HowlCN.github.io/2019/05/12/简述JS垃圾回收机制/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://HowlCN.github.io/2019/05/12/简述JS垃圾回收机制/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
             
             
@@ -235,6 +284,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JS垃圾回收机制"><span class="post-toc-text">JS垃圾回收机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、简介"><span class="post-toc-text">一、简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、引用计数法"><span class="post-toc-text">二、引用计数法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存泄漏"><span class="post-toc-text">内存泄漏</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#循环引用以及解决办法"><span class="post-toc-text">循环引用以及解决办法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#闭包发生循环引用"><span class="post-toc-text">闭包发生循环引用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#DOM与JavaScript的循环引用"><span class="post-toc-text">DOM与JavaScript的循环引用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、标记清除法"><span class="post-toc-text">三、标记清除法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#介绍"><span class="post-toc-text">介绍</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
@@ -289,9 +344,9 @@
 <script>
   var mihoConfig = {
       root: "https://HowlCN.github.io",
-      animate: false,
+      animate: true,
       isHome: false,
-      share: false,
+      share: true,
       reward: 1
   }
 </script>
@@ -387,6 +442,10 @@
 
 
 
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
 
 
   <script src="/js/pop-img.js"></script>

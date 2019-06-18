@@ -331,6 +331,55 @@
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://HowlCN.github.io/2018/01/01/HexoAndGit/&title=《用Hexo和Git搭建github个人博客》 — Howl&pic=https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3010013829,2497003625&fm=26&gp=0.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://HowlCN.github.io/2018/01/01/HexoAndGit/&title=《用Hexo和Git搭建github个人博客》 — Howl&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://HowlCN.github.io/2018/01/01/HexoAndGit/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用Hexo和Git搭建github个人博客》 — Howl&url=https://HowlCN.github.io/2018/01/01/HexoAndGit/&via=https://HowlCN.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://HowlCN.github.io/2018/01/01/HexoAndGit/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://HowlCN.github.io/2018/01/01/HexoAndGit/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
             
             
@@ -348,6 +397,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用Hexo和Git搭建个人博客"><span class="post-toc-text">使用Hexo和Git搭建个人博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-了解Hexo"><span class="post-toc-text">1.了解Hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-搭建Node-js环境"><span class="post-toc-text">2.搭建Node.js环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-安装Node"><span class="post-toc-text">1.安装Node</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-测试安装"><span class="post-toc-text">2.测试安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-安装Hexo框架"><span class="post-toc-text">3.安装Hexo框架</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Github"><span class="post-toc-text">3.Github</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-开启Github服务"><span class="post-toc-text">4.开启Github服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-Git-for-win的安装"><span class="post-toc-text">5.Git for win的安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-GithubSHH配置"><span class="post-toc-text">5.GithubSHH配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、在安装路径下打开git-bash-exe"><span class="post-toc-text">1、在安装路径下打开git-bash.exe</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、输入命令ssh-keygen-t-rsa-C-“用于注册github的邮箱”"><span class="post-toc-text">2、输入命令ssh-keygen -t rsa -C “用于注册github的邮箱”</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-进入自己的github-点击头像–-gt-点击setting–-gt-点击SSH-and-GPG-keys"><span class="post-toc-text">3 进入自己的github  点击头像–&gt;点击setting–&gt;点击SSH and GPG keys</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、Hexo的安装与使用"><span class="post-toc-text">6、Hexo的安装与使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-在本地上创建一个新文件夹并命名，这里我创建在D盘根目录下斌-并命名为MyBlog。"><span class="post-toc-text">1.在本地上创建一个新文件夹并命名，这里我创建在D盘根目录下斌=并命名为MyBlog。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-打开cmd"><span class="post-toc-text">2.打开cmd</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-cd到MyBlog中"><span class="post-toc-text">3.cd到MyBlog中</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-输入安装命令"><span class="post-toc-text">4.输入安装命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-输入初始化博客命令"><span class="post-toc-text">5.输入初始化博客命令</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-安装sublime-text-3"><span class="post-toc-text">7.安装sublime text 3</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-将本地博客发布到GitHub上"><span class="post-toc-text">8.将本地博客发布到GitHub上</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-打开github-com-进入自己的仓库"><span class="post-toc-text">1.打开github.com 进入自己的仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-sublime中打开-config-yml"><span class="post-toc-text">2.sublime中打开_config.yml</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-打开cmd"><span class="post-toc-text">3.打开cmd</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-安装插件"><span class="post-toc-text">4.安装插件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-cmd中输入"><span class="post-toc-text">5.cmd中输入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-若提示配置github信息"><span class="post-toc-text">6.若提示配置github信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-输入用户名以及密码-（github的账户及密码）"><span class="post-toc-text">7.输入用户名以及密码 （github的账户及密码）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-提交成功后直接在浏览器中输入自己的域名"><span class="post-toc-text">8.提交成功后直接在浏览器中输入自己的域名</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
@@ -397,9 +452,9 @@
 <script>
   var mihoConfig = {
       root: "https://HowlCN.github.io",
-      animate: false,
+      animate: true,
       isHome: false,
-      share: false,
+      share: true,
       reward: 1
   }
 </script>
@@ -495,6 +550,10 @@
 
 
 
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
 
 
   <script src="/js/pop-img.js"></script>

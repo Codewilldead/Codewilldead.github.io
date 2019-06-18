@@ -247,6 +247,55 @@
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://HowlCN.github.io/2019/06/15/Express/&title=《Express》 — Howl&pic=https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3589619187,2148873006&fm=26&gp=0.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://HowlCN.github.io/2019/06/15/Express/&title=《Express》 — Howl&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://HowlCN.github.io/2019/06/15/Express/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Express》 — Howl&url=https://HowlCN.github.io/2019/06/15/Express/&via=https://HowlCN.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://HowlCN.github.io/2019/06/15/Express/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://HowlCN.github.io/2019/06/15/Express/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
             
             
@@ -264,6 +313,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Express"><span class="post-toc-text">Express</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#中间件的另一种使用方式"><span class="post-toc-text">中间件的另一种使用方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#next注意点"><span class="post-toc-text">next注意点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#body-parser的使用"><span class="post-toc-text">body-parser的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#错误处理中间件"><span class="post-toc-text">错误处理中间件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#指定静态资源"><span class="post-toc-text">指定静态资源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Router类的使用"><span class="post-toc-text">Router类的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#art-template的使用"><span class="post-toc-text">art-template的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#art-template在前台的使用"><span class="post-toc-text">art-template在前台的使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#art-template在后台中的使用"><span class="post-toc-text">art-template在后台中的使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模板继承"><span class="post-toc-text">模板继承</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
@@ -318,9 +373,9 @@
 <script>
   var mihoConfig = {
       root: "https://HowlCN.github.io",
-      animate: false,
+      animate: true,
       isHome: false,
-      share: false,
+      share: true,
       reward: 1
   }
 </script>
@@ -416,6 +471,10 @@
 
 
 
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
 
 
   <script src="/js/pop-img.js"></script>

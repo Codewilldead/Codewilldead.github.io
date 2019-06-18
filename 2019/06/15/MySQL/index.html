@@ -211,6 +211,55 @@
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://HowlCN.github.io/2019/06/15/MySQL/&title=《MySQL》 — Howl&pic=https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560597796142&di=b01b9067da61419383186fe91a299fd2&imgtype=0&src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-234a2c42c7be96e4070b9f97e5f9047f_1200x500.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://HowlCN.github.io/2019/06/15/MySQL/&title=《MySQL》 — Howl&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://HowlCN.github.io/2019/06/15/MySQL/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MySQL》 — Howl&url=https://HowlCN.github.io/2019/06/15/MySQL/&via=https://HowlCN.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://HowlCN.github.io/2019/06/15/MySQL/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://HowlCN.github.io/2019/06/15/MySQL/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
             
             
@@ -228,6 +277,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MySQL"><span class="post-toc-text">MySQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、确保已安装wamp并且启动成功"><span class="post-toc-text">1、确保已安装wamp并且启动成功</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、下载navicat-premium"><span class="post-toc-text">2、下载navicat premium</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、在项目文件夹中安装mySQL"><span class="post-toc-text">3、在项目文件夹中安装mySQL</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、在服务器js文件中使用mysql包"><span class="post-toc-text">4、在服务器js文件中使用mysql包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#引入mysql包"><span class="post-toc-text">引入mysql包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建数据库链接"><span class="post-toc-text">创建数据库链接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#执行链接操作"><span class="post-toc-text">执行链接操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#操作数据库"><span class="post-toc-text">操作数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关闭数据库"><span class="post-toc-text">关闭数据库</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据库常用语句"><span class="post-toc-text">数据库常用语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#增"><span class="post-toc-text">增</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删"><span class="post-toc-text">删</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#改"><span class="post-toc-text">改</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查"><span class="post-toc-text">查</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#封装对数据库的操作"><span class="post-toc-text">封装对数据库的操作</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
@@ -282,9 +337,9 @@
 <script>
   var mihoConfig = {
       root: "https://HowlCN.github.io",
-      animate: false,
+      animate: true,
       isHome: false,
-      share: false,
+      share: true,
       reward: 1
   }
 </script>
@@ -380,6 +435,10 @@
 
 
 
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
 
 
   <script src="/js/pop-img.js"></script>

@@ -256,6 +256,55 @@
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://HowlCN.github.io/2019/06/15/AJAX/&title=《AJAX》 — Howl&pic=https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560597199410&di=3b8f6ecb46026c43f358b120a46d9c94&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F14%2F20%2F57%2F99Q58PICYrk_1024.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://HowlCN.github.io/2019/06/15/AJAX/&title=《AJAX》 — Howl&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://HowlCN.github.io/2019/06/15/AJAX/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AJAX》 — Howl&url=https://HowlCN.github.io/2019/06/15/AJAX/&via=https://HowlCN.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://HowlCN.github.io/2019/06/15/AJAX/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://HowlCN.github.io/2019/06/15/AJAX/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
             
             
@@ -273,6 +322,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AJAX"><span class="post-toc-text">AJAX</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建AJAX对象"><span class="post-toc-text">创建AJAX对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AJAX的方法"><span class="post-toc-text">AJAX的方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据渲染的两种方式"><span class="post-toc-text">数据渲染的两种方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据在服务器中渲染完毕，返回给客户端一个完整页面"><span class="post-toc-text">数据在服务器中渲染完毕，返回给客户端一个完整页面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务器只返回相应的数据，客户端接收到数据后，在客户端进行渲染，并显示"><span class="post-toc-text">服务器只返回相应的数据，客户端接收到数据后，在客户端进行渲染，并显示</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#XML"><span class="post-toc-text">XML</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jQuery中的AJAX"><span class="post-toc-text">jQuery中的AJAX</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用"><span class="post-toc-text">使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dataType"><span class="post-toc-text">dataType</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#nprogress的使用（全局事件处理）"><span class="post-toc-text">nprogress的使用（全局事件处理）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#跨域请求"><span class="post-toc-text">跨域请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何进行跨域请求"><span class="post-toc-text">如何进行跨域请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CORS"><span class="post-toc-text">CORS</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JSONP"><span class="post-toc-text">JSONP</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
@@ -327,9 +382,9 @@
 <script>
   var mihoConfig = {
       root: "https://HowlCN.github.io",
-      animate: false,
+      animate: true,
       isHome: false,
-      share: false,
+      share: true,
       reward: 1
   }
 </script>
@@ -425,6 +480,10 @@
 
 
 
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
 
 
   <script src="/js/pop-img.js"></script>

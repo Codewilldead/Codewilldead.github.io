@@ -364,6 +364,55 @@
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://HowlCN.github.io/2019/05/14/正则表达式/&title=《正则表达式》 — Howl&pic=https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557846080967&di=f9171c568efa31794d1dd67e4ebe348a&imgtype=0&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1144894%2F201902%2F1144894-20190216135813714-1053873834.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://HowlCN.github.io/2019/05/14/正则表达式/&title=《正则表达式》 — Howl&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://HowlCN.github.io/2019/05/14/正则表达式/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《正则表达式》 — Howl&url=https://HowlCN.github.io/2019/05/14/正则表达式/&via=https://HowlCN.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://HowlCN.github.io/2019/05/14/正则表达式/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://HowlCN.github.io/2019/05/14/正则表达式/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
             
             
@@ -381,6 +430,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#正则表达式"><span class="post-toc-text">正则表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则表达式的组成"><span class="post-toc-text">正则表达式的组成</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#元字符"><span class="post-toc-text">元字符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#限定符"><span class="post-toc-text">限定符</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#范围符"><span class="post-toc-text">范围符[ ]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始结束符号"><span class="post-toc-text">开始结束符号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则对象的创建方式"><span class="post-toc-text">正则对象的创建方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、new-RegExp"><span class="post-toc-text">1、new  RegExp()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、简写"><span class="post-toc-text">2、简写</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则对象的方法"><span class="post-toc-text">正则对象的方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#懒惰模式与贪婪模式"><span class="post-toc-text">懒惰模式与贪婪模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分组提取"><span class="post-toc-text">分组提取</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符串中正则的使用"><span class="post-toc-text">字符串中正则的使用</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
@@ -435,9 +490,9 @@
 <script>
   var mihoConfig = {
       root: "https://HowlCN.github.io",
-      animate: false,
+      animate: true,
       isHome: false,
-      share: false,
+      share: true,
       reward: 1
   }
 </script>
@@ -533,6 +588,10 @@
 
 
 
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
 
 
   <script src="/js/pop-img.js"></script>
