@@ -3,14 +3,15 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Howl</title>
+  <title>Canvas的基本使用 | Howl</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="HowlCN,HowlCN's Blog">
   
   <meta name="description" content="Canvas的基本使用 canvas 最早由Apple引入WebKit,用于Mac OS X 的 Dashboard,后来又在Safari和Google Chrome被实现。基于 Gecko 1.8的浏览器,比如 Firefox 1.5, 同样支持这个元素。&amp;lt;canvas&amp;gt; 元素是WhatWG Web applications 1.0规范的一部分,也包含于HTML 5中。    体验C">
+<meta name="keywords" content="笔记,HTML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Howl">
+<meta property="og:title" content="Canvas的基本使用">
 <meta property="og:url" content="https://HowlCN.github.io/2019/06/19/canvas的基本使用/index.html">
 <meta property="og:site_name" content="Howl">
 <meta property="og:description" content="Canvas的基本使用 canvas 最早由Apple引入WebKit,用于Mac OS X 的 Dashboard,后来又在Safari和Google Chrome被实现。基于 Gecko 1.8的浏览器,比如 Firefox 1.5, 同样支持这个元素。&amp;lt;canvas&amp;gt; 元素是WhatWG Web applications 1.0规范的一部分,也包含于HTML 5中。    体验C">
@@ -24,9 +25,9 @@
 <meta property="og:image" content="https://howlcn.github.io/2019/06/19/canvas的基本使用/bezier02.gif">
 <meta property="og:image" content="https://howlcn.github.io/2019/06/19/canvas的基本使用/bezier03.gif">
 <meta property="og:image" content="https://howlcn.github.io/2019/06/19/canvas的基本使用/bezier04.gif">
-<meta property="og:updated_time" content="2019-06-19T13:43:34.425Z">
+<meta property="og:updated_time" content="2019-06-19T13:48:41.729Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Howl">
+<meta name="twitter:title" content="Canvas的基本使用">
 <meta name="twitter:description" content="Canvas的基本使用 canvas 最早由Apple引入WebKit,用于Mac OS X 的 Dashboard,后来又在Safari和Google Chrome被实现。基于 Gecko 1.8的浏览器,比如 Firefox 1.5, 同样支持这个元素。&amp;lt;canvas&amp;gt; 元素是WhatWG Web applications 1.0规范的一部分,也包含于HTML 5中。    体验C">
 <meta name="twitter:image" content="https://howlcn.github.io/2019/06/19/canvas的基本使用/location.jpg">
   
@@ -122,6 +123,29 @@
         <section id="main" class="body-wrap"><article id="post-canvas的基本使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Canvas的基本使用
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-06-19
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
     <div class="article-entry post-content" itemprop="articleBody">
       
             
@@ -134,7 +158,7 @@
 <font color="red">注意：canvas的大小要在标签内定义，否则会出现意料之外的效果。</font>
 
 <h4 id="Canvas坐标系"><a href="#Canvas坐标系" class="headerlink" title="Canvas坐标系"></a>Canvas坐标系</h4><p><img src="/2019/06/19/canvas的基本使用/location.jpg" alt></p>
-<h4 id="通过JavaScript来绘制"><a href="#通过JavaScript来绘制" class="headerlink" title="通过JavaScript来绘制"></a>通过JavaScript来绘制</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*获取元素*/</span></span><br><span class="line"><span class="keyword">var</span> myCanvas = <span class="built_in">document</span>.querySelector(<span class="string">'#myCanvas'</span>);</span><br><span class="line"><span class="comment">/*获取上下文 绘制工具箱 */</span></span><br><span class="line"><span class="comment">/*目前canvas只支持2d*/</span></span><br><span class="line"><span class="comment">/*若要达到3d效果，需要想象一个3d坐标系后，再投影到canvas上*/</span></span><br><span class="line"><span class="keyword">var</span> context = myCanvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line"><span class="comment">/*设置绘图的起始位置*/</span></span><br><span class="line">context.moveTo(<span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line"><span class="comment">/*绘制路径*/</span></span><br><span class="line">context.lineTo(<span class="number">200</span>,<span class="number">200</span>);</span><br><span class="line"><span class="comment">/*描边*/</span></span><br><span class="line">context.stroke();</span><br></pre></td></tr></table></figure>
+<h4 id="通过JavaScript来绘制"><a href="#通过JavaScript来绘制" class="headerlink" title="通过JavaScript来绘制"></a>通过JavaScript来绘制</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*获取元素*/</span></span><br><span class="line"><span class="keyword">var</span> myCanvas = <span class="built_in">document</span>.querySelector(<span class="string">'#myCanvas'</span>);</span><br><span class="line"><span class="comment">/*获取上下文 绘制工具箱 */</span></span><br><span class="line"><span class="comment">/*目前canvas只支持2d*/</span></span><br><span class="line"><span class="comment">/*若要达到3d效果，需要想象一个3d坐标系后，再投影到canvas上*/</span></span><br><span class="line"><span class="comment">/*或者配合WebGL达到3d效果*/</span></span><br><span class="line"><span class="keyword">var</span> context = myCanvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line"><span class="comment">/*设置绘图的起始位置*/</span></span><br><span class="line">context.moveTo(<span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line"><span class="comment">/*绘制路径*/</span></span><br><span class="line">context.lineTo(<span class="number">200</span>,<span class="number">200</span>);</span><br><span class="line"><span class="comment">/*描边*/</span></span><br><span class="line">context.stroke();</span><br></pre></td></tr></table></figure>
 <h3 id="Canvas的基本使用-1"><a href="#Canvas的基本使用-1" class="headerlink" title="Canvas的基本使用"></a>Canvas的基本使用</h3><h4 id="图形绘制"><a href="#图形绘制" class="headerlink" title="图形绘制"></a>图形绘制</h4><p>1、开启新的路径</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.beginPath();</span><br></pre></td></tr></table></figure>
 <p>2、画路径</p>
@@ -299,8 +323,8 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年06月19日 21:43</p>
-        <p>原始链接： <a class="post-url" href="/2019/06/19/canvas的基本使用/" title>https://HowlCN.github.io/2019/06/19/canvas的基本使用/</a></p>
+        <p>最后更新： 2019年06月19日 21:48</p>
+        <p>原始链接： <a class="post-url" href="/2019/06/19/canvas的基本使用/" title="Canvas的基本使用">https://HowlCN.github.io/2019/06/19/canvas的基本使用/</a></p>
         <footer>
             <a href="https://HowlCN.github.io">
                 <img src="/images/logo.png" alt="HowlCN">
@@ -357,7 +381,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://HowlCN.github.io/2019/06/19/canvas的基本使用/&title=Howl&pic=https://HowlCN.github.ioimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://HowlCN.github.io/2019/06/19/canvas的基本使用/&title=《Canvas的基本使用》 — Howl&pic=https://www.html5tricks.com/wp-content/uploads/2019/04/html5-canvas-fireworks-celebrate.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -367,7 +391,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://HowlCN.github.io/2019/06/19/canvas的基本使用/&title=Howl&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://HowlCN.github.io/2019/06/19/canvas的基本使用/&title=《Canvas的基本使用》 — Howl&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -377,7 +401,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Howl&url=https://HowlCN.github.io/2019/06/19/canvas的基本使用/&via=https://HowlCN.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Canvas的基本使用》 — Howl&url=https://HowlCN.github.io/2019/06/19/canvas的基本使用/&via=https://HowlCN.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -401,6 +425,15 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/笔记/" class="color3">笔记</a>
+      
+    <a href="/tags/HTML/" class="color5">HTML</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -484,7 +517,7 @@
             
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Ps/" style="font-size: 10px;">Ps</a> <a href="/tags/搭建/" style="font-size: 12.5px;">搭建</a> <a href="/tags/笔记/" style="font-size: 17.5px;">笔记</a> <a href="/tags/算法/" style="font-size: 12.5px;">算法</a>
+            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Ps/" style="font-size: 10px;">Ps</a> <a href="/tags/搭建/" style="font-size: 12.5px;">搭建</a> <a href="/tags/笔记/" style="font-size: 17.5px;">笔记</a> <a href="/tags/算法/" style="font-size: 12.5px;">算法</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -517,7 +550,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Ps/" style="font-size: 10px;">Ps</a> <a href="/tags/搭建/" style="font-size: 12.5px;">搭建</a> <a href="/tags/笔记/" style="font-size: 17.5px;">笔记</a> <a href="/tags/算法/" style="font-size: 12.5px;">算法</a>
+            <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Ps/" style="font-size: 10px;">Ps</a> <a href="/tags/搭建/" style="font-size: 12.5px;">搭建</a> <a href="/tags/笔记/" style="font-size: 17.5px;">笔记</a> <a href="/tags/算法/" style="font-size: 12.5px;">算法</a>
         </div>
     </div>
 </div>
